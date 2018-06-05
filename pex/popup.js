@@ -33,7 +33,9 @@ const concat=(baseUrl,category,listSubCategory,article,listDisplayName)=>{
     }
 }
 
-const 
+const prepareUrls=()=>{
+    
+}
 
 const xhrStatus=(arg)=>{
     try{
