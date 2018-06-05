@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <style>
+        body{width: 300px;}
+        button {
+          height: 30px;
+          width: 100%;
+          outline: none;
+        }
+        .footer_proximity{
+          text-align: center;
+          font-size: 7px;
+        }
+        .checkbox_option{
+          text-align:center;
+          margin-bottom: 5px;
+        }
+        #arg-value{
+          text-align:center;
+          margin-bottom: 5px;
+        }
+        input[type=text]{
+          width: 100%;
+          margin-bottom: 5px;
+          border-radius: 3px;
+        }
+        #btn-confirm{border-radius:3px;}
+      </style>
+    </head>
+    <body>
+      <h1 align="center">Pex</h1>      
+      <div id="option-section">
+        <div class="checkbox_option">
+          <input type="checkbox" name="optionOpenUrls" value="optionOpenUrls" id="optionOpenUrls">Open Urls
+        </div>
+        <div id="arg-value">
+          <input type="text" placeholder="Base Url" id="base-url" name="base-url"><br>
+          <input type="text" placeholder="Category" id="category" name="category"><br>
+          <input type="text" placeholder="List Sub Category" id="list-sub-category" name="list-sub-category"><br>
+          <input type="text" placeholder="Article" id="article" name="article"><br>
+          <input type="text" placeholder="List Display Name" id="list-display-name" name="list-display-name">
+        </div>
+      </div>
+      <button id="btn-confirm" class="button">confirm</button>
+      <div id="result"></div>
+      <a href="options.html"><p class='footer_proximity'>Proximity BBDO Mauritius</p></a>
+      <script src='popup.js'></script>
+    </body>
+  </html>
