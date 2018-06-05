@@ -23,7 +23,8 @@ const concat=(baseUrl,category,listSubCategory,article,listDisplayName)=>{
     try{
         let result=new Array(listDisplayName.length);
         for(var compt=0;compt<listDisplayName.length;compt++){
-            result[compt]=baseUrl+'/'+category+'/'+listSubCategory[compt]+'/'+article+'/'+listDisplayName[compt];
+            let temp=baseUrl+'/'+category+'/'+listSubCategory[compt]+'/'+article+'/'+listDisplayName[compt];
+            result[compt]=prepareUrls(temp);
             if(document.getElementById('optionOpenUrls').checked)open(result);
         }
         return result;
@@ -33,9 +34,7 @@ const concat=(baseUrl,category,listSubCategory,article,listDisplayName)=>{
     }
 }
 
-const prepareUrls=()=>{
-    
-}
+const prepareUrls=(arg)=>{return arg.replace(' ','-').toLowerCase();}
 
 const xhrStatus=(arg)=>{
     try{
