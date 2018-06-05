@@ -23,7 +23,7 @@ const concat=(baseUrl,category,listSubCategory,article,listDisplayName)=>{
     try{
         let result=new Array(listDisplayName.length);
         for(var compt=0;compt<listDisplayName.length;compt++){
-            let temp=baseUrl+'/'+category+'/'+listSubCategory[compt]+'/'+article+'/'+listDisplayName[compt];
+            let temp=baseUrl+'/'+category+'/'+prepareUrls(listSubCategory[compt])+'/'+article+'/'+prepareUrls(listDisplayName[compt]);
             result[compt]=prepareUrls(temp);
             if(document.getElementById('optionOpenUrls').checked)open(result);
         }
