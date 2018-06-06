@@ -51,7 +51,7 @@ const xhrStatus=(arg)=>{
         var xhr = new XMLHttpRequest();
         xhr.open('GET', arg, true);
         xhr.onprogress=()=>{
-            console.log('LOADING::'+arg);
+            //console.log('LOADING::', xhr.status);
         };
         xhr.onload=()=>{
             console.log('DONE', xhr.status);
