@@ -13,7 +13,8 @@ btnConfirm.onclick=(activeTab)=>{
 const displayResult=(arg)=>{
     let result='';
     for(var compt=0;compt<arg.length;compt++){
-        result+='<p>'+arg[compt]+'</p>';
+        if (document.getElementById('showStatusCode').checked)result+='<p>'+arg[compt]+'</p><p id="showStatusCode_'+compt+'"></p>'
+        else result+='<p>'+arg[compt]+'</p>'
     }
     document.getElementById('result').innerHTML=result;
 }
@@ -25,7 +26,7 @@ const concat=(baseUrl,category,listSubCategory,article,listDisplayName)=>{
         for(var compt=0;compt<listDisplayName.length;compt++){
             let temp=baseUrl+'/'+category+'/'+prepareUrls(listSubCategory[compt])+'/'+article+'/'+prepareUrls(listDisplayName[compt]);
             result[compt]=temp;
-            xhrStatus(result);
+            xhrStatus(result,compt);
             if(document.getElementById('optionOpenUrls').checked)open(result);
         }
         return result;
@@ -46,16 +47,16 @@ const prepareUrls=(arg)=>{
     return temp.replace('+','').toLowerCase();
 }
 
-const xhrStatus=(arg)=>{
+const xhrStatus=(arg,statusCodeId)=>{
     try{
         var xhr = new XMLHttpRequest();
         xhr.open('GET', arg, true);
         xhr.onprogress=()=>{
-            //console.log('LOADING::', xhr.status);
+            console.log('LOADING::', xhr.status);
+            if (document.getElementById('showStatusCode').checked)document.getElementById('showStatusCode_'+statusCodeId).innerHTML=xhr.status;
         };
         xhr.onload=()=>{
             console.log('DONE', xhr.status);
-            return xhr.status;
         };
         xhr.send(null);
     }
