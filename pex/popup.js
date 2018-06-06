@@ -3,9 +3,9 @@ let btnConfirm=document.getElementById("btn-confirm");
 btnConfirm.onclick=(activeTab)=>{
     let baseUrl=document.getElementById('base-url').value;
     let category=document.getElementById('category').value;
-    let listSubCategory=(document.getElementById('list-sub-category').value).split("+ ");
+    let listSubCategory=(document.getElementById('list-sub-category').value).split("	+ ");
     let article=document.getElementById('article').value;
-    let listDisplayName=(document.getElementById('list-display-name').value).split("+ ");
+    let listDisplayName=(document.getElementById('list-display-name').value).split("	+ ");
     displayResult(concat(baseUrl,category,listSubCategory,article,listDisplayName));
     copyElement(document.getElementById('result'));
 }
