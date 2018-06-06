@@ -24,8 +24,8 @@ const concat=(baseUrl,category,listSubCategory,article,listDisplayName)=>{
         let result=new Array(listDisplayName.length);
         for(var compt=0;compt<listDisplayName.length;compt++){
             let temp=baseUrl+'/'+category+'/'+prepareUrls(listSubCategory[compt])+'/'+article+'/'+prepareUrls(listDisplayName[compt]);
-            result[compt]=prepareUrls(temp);
-            //xhrStatus(result);
+            result[compt]=temp;
+            xhrStatus(result);
             if(document.getElementById('optionOpenUrls').checked)open(result);
         }
         return result;
@@ -35,7 +35,16 @@ const concat=(baseUrl,category,listSubCategory,article,listDisplayName)=>{
     }
 }
 
-const prepareUrls=(arg)=>{return arg.replace('+','').replace(' ','-').toLowerCase();}
+const prepareUrls=(arg)=>{
+    let temp=arg.charAt(0);
+    for(var compt=1;compt<arg.length;compt++){
+        if(arg.charAt(compt)==' '){
+            temp+='-';
+        }
+        else temp+=arg.charAt(compt);
+    }
+    return temp.replace('+','').toLowerCase();
+}
 
 const xhrStatus=(arg)=>{
     try{
