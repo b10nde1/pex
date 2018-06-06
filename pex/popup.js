@@ -25,6 +25,7 @@ const concat=(baseUrl,category,listSubCategory,article,listDisplayName)=>{
         for(var compt=0;compt<listDisplayName.length;compt++){
             let temp=baseUrl+'/'+category+'/'+prepareUrls(listSubCategory[compt])+'/'+article+'/'+prepareUrls(listDisplayName[compt]);
             result[compt]=prepareUrls(temp);
+            //xhrStatus(result);
             if(document.getElementById('optionOpenUrls').checked)open(result);
         }
         return result;
@@ -40,13 +41,13 @@ const xhrStatus=(arg)=>{
     try{
         var xhr = new XMLHttpRequest();
         xhr.open('GET', arg, true);
-        xhr.onprogress = function () {
+        xhr.onprogress=()=>{
             console.log('LOADING', xhr.status);
         };
-        xhr.onload = function () {
+        xhr.onload=()=>{
             console.log('DONE', xhr.status);
+            return xhr.status;
         };
-        return xhr.status;
         xhr.send(null);
     }
     catch(e){
